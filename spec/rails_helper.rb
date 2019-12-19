@@ -17,7 +17,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.strategy = :truncation
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -25,15 +25,15 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+     #DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before :each do
-    DatabaseCleaner.clean
+     #DatabaseCleaner.clean
   end
 
   config.after :each do
-    DatabaseCleaner.clean
+    #DatabaseCleaner.clean
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
