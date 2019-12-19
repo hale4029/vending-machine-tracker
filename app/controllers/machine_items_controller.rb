@@ -1,0 +1,3 @@
+class MachinesItemsController < ApplicationController
+  
+end
