@@ -14,12 +14,12 @@ RSpec.describe 'When I visit a snack show page', type: :feature do
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
     harry  = owner.machines.create(location: "Harrys's Mixed Drinks")
     item_1 = dons.items.create(name: "food", price: 1.50)
-    item_2 = dons.items.create(name: "snack", price: 2.00)
-    item_1 = harry.items.create(name: "food", price: 1.50)
+    dons.items.create(name: "snack", price: 2.00)
+    harry.items << item_1
 
     visit "items/#{item_1.id}"
     expect(page).to have_content(item_1.name)
-    expect(page).to have_content("Price: 1.50")
+    expect(page).to have_content("Price: 1.5")
     expect(page).to have_content("Don's Mixed Drinks")
     expect(page).to have_content("Average Price: 1.75")
     expect(page).to have_content("Item Count: 2")
