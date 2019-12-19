@@ -6,9 +6,9 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
     item_1 = dons.items.create(name: "food", price: 1.50)
     item_2 = dons.items.create(name: "snack", price: 2.00)
-    
-    visit "machines/#{dons.id}"
 
+    visit "machines/#{dons.id}"
+    expect(page).to have_content("Averge Price: 1.75")
     expect(page).to have_content(item_1.name)
     expect(page).to have_content(item_1.price)
     expect(page).to have_content(item_2.name)
