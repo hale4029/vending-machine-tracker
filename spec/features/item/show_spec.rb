@@ -25,6 +25,5 @@ RSpec.describe 'When I visit a snack show page', type: :feature do
     expect(page).to have_content("Item Count: 2")
     expect(page).to have_content("Harrys's Mixed Drinks")
     expect(page).to have_content("Item Count: 1")
-
   end
 end
