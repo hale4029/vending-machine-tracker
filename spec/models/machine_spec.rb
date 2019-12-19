@@ -10,4 +10,15 @@ RSpec.describe Machine, type: :model do
     it { should have_many :machine_items}
     it { should have_many(:items).through(:machine_items)}
   end
+
+  it "average_item_price" do
+    owner = Owner.create(name: "Sam's Snacks")
+    dons  = owner.machines.create(location: "Don's Mixed Drinks")
+    item_1 = dons.items.create(name: "food", price: 1.50)
+    item_2 = dons.items.create(name: "snack", price: 2.00)
+
+    result = dons.average_item_price
+
+    expect(result).to eq(1.75)
+  end
 end
